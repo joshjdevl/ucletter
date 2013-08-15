@@ -121,6 +121,20 @@
   }
 }
 
+\DeclareOption{ucla}{
+  \renewcommand{\ucl@univ}{UCLA}
+  \renewcommand{\ucl@campus}{Los Angeles}
+  \renewcommand{\ucl@school}{}
+  \DeclareOption{cs}{
+    \renewcommand{\ucl@dept}{Department of Computer Science}
+    \renewcommand{\ucl@deptphone}{}
+    \renewcommand{\ucl@deptfax}{}
+    \renewcommand{\ucl@depturl}{http://www.cs.ucla.edu/}
+    \renewcommand{\ucl@univstreet}{}
+    \renewcommand{\ucl@univtown}{Los Angeles, California 90095-1596}
+  }
+}
+
 \DeclareOption{ucsb}{
   \renewcommand{\ucl@univ}{UCSB}
   \renewcommand{\ucl@campus}{Santa Barbara}
@@ -237,6 +251,7 @@
     }
     {}
     \ifthenelse{\equal{\ucl@fromaddr}{date}}{}{
+      \ifthenelse{\equal{\fromname}{}}{}{\fromname, PhD Student\\}
       \ifthenelse{\equal{\ucl@telephone}{}}{}{{\sc Phone:} \ucl@telephone\\}
       \ifthenelse{\equal{\ucl@fax}{}}{}{{\sc Fax:} \ucl@fax\\}
       \ifthenelse{\equal{\ucl@email}{}}{}{{\sc Email:} \ucl@email\\}
